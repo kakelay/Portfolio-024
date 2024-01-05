@@ -324,10 +324,10 @@ packages:
     dependency: "direct main"
     description:
       name: responsive_framework
-      sha256: e7f61cac1a6928a19881d1a96eb2ded2c009884f2e8329f1fae1f5b4d27caaea
+      sha256: "23aa7be5d5136922df708f6ddccb5ec4e0eb8bc576c3f105f5093f31d6b68e50"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.9"
+    version: "1.1.1"
   shelf:
     dependency: transitive
     description:
