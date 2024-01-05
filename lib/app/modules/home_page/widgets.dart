@@ -43,7 +43,7 @@ class PageHeader extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         const Image(
-          width: 800,
+          width: 900,
           color: Color.fromRGBO(255, 255, 255, 0.5),
           colorBlendMode: BlendMode.modulate,
           image: AssetImage('assets/images/header_image.png'),
@@ -93,8 +93,12 @@ class CourseTile extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Image.asset(
-                course.image,
+              Container(
+                width: 600,
+                height: 350,
+                child: Image.asset(
+                  course.image,
+                ),
               ),
               const SizedBox(
                 height: 5,
@@ -103,6 +107,7 @@ class CourseTile extends StatelessWidget {
                 course.title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey,
                 ),
               ),
               const SizedBox(
@@ -120,7 +125,10 @@ class CourseTile extends StatelessWidget {
               ),
               Text(
                 course.description,
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.blueGrey,
+                ),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -161,6 +169,49 @@ class SubscribeBlock extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class ImagsFollowForMore extends StatelessWidget {
+  const ImagsFollowForMore({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: ResponsiveValue(
+        context,
+        defaultValue: 500.0,
+        valueWhen: const [
+          Condition.smallerThan(
+            name: MOBILE,
+            value: 400.0,
+          ),
+          Condition.largerThan(
+            name: TABLET,
+            value: 500.0,
+          )
+        ],
+      ).value,
+      height: ResponsiveValue(
+        context,
+        defaultValue: 500.0,
+        valueWhen: const [
+          Condition.smallerThan(
+            name: MOBILE,
+            value: 400.0,
+          ),
+          Condition.largerThan(
+            name: TABLET,
+            value: 500.0,
+          )
+        ],
+      ).value,
+      child: Image.asset(
+        'assets/images/login.png',
+      ),
     );
   }
 }

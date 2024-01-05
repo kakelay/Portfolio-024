@@ -23,7 +23,7 @@ class _CoursesPageState extends State<CoursesPage> {
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.lightBlue[800],
+          backgroundColor: isDarkMode ? Colors.lightBlue[800] : Colors.white,
           centerTitle: true,
           title: const AppBarTitle(),
           leading: ResponsiveVisibility(
@@ -44,28 +44,37 @@ class _CoursesPageState extends State<CoursesPage> {
               visibleWhen: [Condition.largerThan(name: TABLET)],
               child: MenuTextButton(text: 'About'),
             ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  isDarkMode = !isDarkMode;
-                });
-              },
-              icon: isDarkMode
-                  ? const Icon(Icons.dark_mode)
-                  : const Icon(Icons.light_mode),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isDarkMode = !isDarkMode;
+                  });
+                },
+                icon: isDarkMode
+                    ? const Icon(Icons.dark_mode)
+                    : const Icon(Icons.light_mode),
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.mark_email_unread_rounded),
-              onPressed: () {},
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: IconButton(
+                icon: const Icon(Icons.mark_email_unread_rounded),
+                onPressed: () {},
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.logout_rounded),
-              onPressed: () {},
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: IconButton(
+                icon: const Icon(Icons.logout_rounded),
+                onPressed: () {},
+              ),
             ),
           ],
         ),
         body: ListView(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(15),
           children: [
             const Center(child: PageHeader()),
             const SizedBox(
@@ -80,17 +89,46 @@ class _CoursesPageState extends State<CoursesPage> {
                   : ResponsiveRowColumnType.ROW,
               children: [
                 ResponsiveRowColumnItem(
-                    rowFlex: 1, child: CourseTile(course: courses[0])),
+                  rowFlex: 1,
+                  child: CourseTile(course: courses[0]),
+                ),
                 ResponsiveRowColumnItem(
-                    rowFlex: 1, child: CourseTile(course: courses[1])),
+                  rowFlex: 1,
+                  child: CourseTile(course: courses[1]),
+                ),
                 ResponsiveRowColumnItem(
-                    rowFlex: 1, child: CourseTile(course: courses[2])),
+                  rowFlex: 1,
+                  child: CourseTile(course: courses[2]),
+                ),
               ],
             ),
             const SizedBox(
               height: 10,
             ),
             const Center(child: SubscribeBlock()),
+            Text(
+              'Follow For More',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: ResponsiveValue(
+                  context,
+                  defaultValue: 50.0,
+                  valueWhen: const [
+                    Condition.smallerThan(
+                      name: MOBILE,
+                      value: 40.0,
+                    ),
+                    Condition.largerThan(
+                      name: TABLET,
+                      value: 50.0,
+                    )
+                  ],
+                ).value,
+                color: Colors.blueGrey[900],
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const ImagsFollowForMore()
           ],
         ),
       ),

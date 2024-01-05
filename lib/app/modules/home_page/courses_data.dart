@@ -1,8 +1,8 @@
 class Course {
   static final courses = [
     Course(
-      title: 'Dart for Beginners',
-      image: 'assets/images/dart_course.png',
+      title: 'Github',
+      image: 'assets/images/github.png',
       time: '23 H 17 M',
       description: 'Beginner course focused on Dart basics.',
     ),
