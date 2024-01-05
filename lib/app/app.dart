@@ -10,7 +10,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
+
       debugShowCheckedModeBanner: false,
       builder: (context, widget) => ResponsiveWrapper.builder(
         ClampingScrollWrapper.builder(context, widget!),
@@ -22,7 +22,7 @@ class App extends StatelessWidget {
         ],
       ),
       title: 'Flutter Responsive Framework',
-      home: const CoursesPage(),
+      home:   CoursesPage(),
     );
   }
 }
