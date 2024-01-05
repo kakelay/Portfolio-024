@@ -11,7 +11,10 @@ class AppBarTitle extends StatelessWidget {
     return const Row(
       children: [
         Icon(Icons.school_rounded),
-        Text('   KAK ELAY'),
+        Text(
+          '   KAK ELAY',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
       ],
     );
   }
@@ -211,6 +214,143 @@ class ImagsFollowForMore extends StatelessWidget {
       ).value,
       child: Image.asset(
         'assets/images/login.png',
+      ),
+    );
+  }
+}
+
+class GridView4Images extends StatelessWidget {
+  const GridView4Images({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey.shade50,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                width: 200,
+                height: 200,
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey.shade50,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                width: 200,
+                height: 200,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey.shade50,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                width: 200,
+                height: 200,
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey.shade50,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                width: 200,
+                height: 200,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class CircleImageConnnection extends StatelessWidget {
+  const CircleImageConnnection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 100,
+            width: 100,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Container(
+            height: 100,
+            width: 100,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Container(
+            height: 100,
+            width: 100,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Container(
+            height: 100,
+            width: 100,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -12,7 +12,7 @@ class CoursesPage extends StatefulWidget {
 }
 
 class _CoursesPageState extends State<CoursesPage> {
-  bool isDarkMode = false;
+  bool isDarkMode = true;
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +128,25 @@ class _CoursesPageState extends State<CoursesPage> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            const ImagsFollowForMore()
+            const ImagsFollowForMore(),
+            const SizedBox(
+              height: 25,
+            ),
+            const GridView4Images(),
+            const SizedBox(
+              height: 25,
+            ),
+            const CircleImageConnnection(),
+            const SizedBox(
+              height: 25,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey.shade100,
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
+              ),
+              height: 400,
+            ),
           ],
         ),
       ),
