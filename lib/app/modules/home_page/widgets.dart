@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_slider/carousel.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'courses_data.dart';
@@ -10,10 +11,21 @@ class AppBarTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
+        CircleAvatar(
+          backgroundColor: Colors.black,
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/kakelay.jpg'),
+          ),
+        ),
+        SizedBox(width: 14),
         Icon(Icons.school_rounded),
         Text(
           '   KAK ELAY',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          // style: TextStyle(
+          //   fontWeight: FontWeight.bold,
+          //   fontSize: 18,
+          //   color: Colors.redAccent,
+          // ),
         ),
       ],
     );
@@ -47,32 +59,32 @@ class PageHeader extends StatelessWidget {
       children: [
         const Image(
           width: 900,
-          color: Color.fromRGBO(255, 255, 255, 0.5),
+          //   color: Color.fromRGBO(255, 255, 255, 0.5),
           colorBlendMode: BlendMode.modulate,
           image: AssetImage('assets/images/header_image.png'),
         ),
-        Text(
-          'Welcome',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: ResponsiveValue(
-              context,
-              defaultValue: 60.0,
-              valueWhen: const [
-                Condition.smallerThan(
-                  name: MOBILE,
-                  value: 40.0,
-                ),
-                Condition.largerThan(
-                  name: TABLET,
-                  value: 80.0,
-                )
-              ],
-            ).value,
-            color: Colors.blueGrey[900],
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        // Text(
+        //   'Welcome',
+        //   textAlign: TextAlign.center,
+        //   style: TextStyle(
+        //     fontSize: ResponsiveValue(
+        //       context,
+        //       defaultValue: 60.0,
+        //       valueWhen: const [
+        //         Condition.smallerThan(
+        //           name: MOBILE,
+        //           value: 40.0,
+        //         ),
+        //         Condition.largerThan(
+        //           name: TABLET,
+        //           value: 80.0,
+        //         )
+        //       ],
+        //     ).value,
+        //     color: Colors.blueGrey[900],
+        //     fontWeight: FontWeight.w700,
+        //   ),
+        // ),
       ],
     );
   }
@@ -163,8 +175,8 @@ class SubscribeBlock extends StatelessWidget {
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(
-                horizontal: 80,
-                vertical: 20,
+                horizontal: 100,
+                vertical: 18,
               ),
             ),
             onPressed: () {},
@@ -232,6 +244,8 @@ class GridView4Images extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
+                child: Image.network(
+                    'https://codenovation.org/images/flutter-interact-card.png'),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey.shade50,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -245,6 +259,8 @@ class GridView4Images extends StatelessWidget {
             ),
             Expanded(
               child: Container(
+                child: Image.network(
+                    'https://pbs.twimg.com/profile_images/1513607174555062273/BhYsx-c4_400x400.jpg'),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey.shade50,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -262,6 +278,8 @@ class GridView4Images extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
+                child: Image.network(
+                    'https://emaillistvalidation.com/blog/content/images/2023/10/getx.jpg'),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey.shade50,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -275,6 +293,8 @@ class GridView4Images extends StatelessWidget {
             ),
             Expanded(
               child: Container(
+                child: Image.network(
+                    'https://qph.cf2.quoracdn.net/main-qimg-729a22aba98d1235fdce4883accaf81e'),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey.shade50,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -290,65 +310,46 @@ class GridView4Images extends StatelessWidget {
   }
 }
 
-class CircleImageConnnection extends StatelessWidget {
-  const CircleImageConnnection({
-    super.key,
-  });
+class ImagesSlider extends StatelessWidget {
+  const ImagesSlider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
-              ),
-            ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
+      child: Carousel(
+        indicatorBarColor: Colors.transparent,
+        autoScrollDuration: const Duration(seconds: 1),
+        animationPageDuration: Duration(milliseconds: 500),
+        activateIndicatorColor: Colors.transparent,
+        //  animationPageCurve: Curves.bounceInOut,
+        indicatorBarHeight: 30,
+        indicatorHeight: 15,
+        indicatorWidth: 5,
+        unActivatedIndicatorColor: Colors.transparent,
+
+        autoScroll: true,
+
+        // widgets
+        items: [
+          Image.asset(
+            'assets/images/login.png',
           ),
-          const SizedBox(
-            width: 15,
+          Image.asset(
+            'assets/images/kakelay.jpg',
           ),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
-              ),
-            ),
+          Image.asset(
+            'assets/images/github.png',
           ),
-          const SizedBox(
-            width: 15,
+          Image.asset(
+            'assets/images/ui.png',
           ),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
-              ),
-            ),
+          Image.asset(
+            'assets/images/MealMonkeyLogo.png',
           ),
-          const SizedBox(
-            width: 15,
-          ),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
-              ),
-            ),
+          Image.asset(
+            'assets/images/login.png',
           ),
         ],
       ),

@@ -12,27 +12,28 @@ class CoursesPage extends StatefulWidget {
 }
 
 class _CoursesPageState extends State<CoursesPage> {
-  bool isDarkMode = true;
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
     List<Course> courses = Course.courses;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: isDarkMode ? Colors.lightBlue[800] : Colors.white,
+          backgroundColor: isDarkMode ? Colors.transparent : Colors.white,
           centerTitle: true,
           title: const AppBarTitle(),
-          leading: ResponsiveVisibility(
-            hiddenWhen: const [Condition.largerThan(name: TABLET)],
-            child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-          ),
+          // leading: ResponsiveVisibility(
+          //   hiddenWhen: const [Condition.largerThan(name: TABLET)],
+          //   child: IconButton(
+          //     onPressed: () {},
+          //     icon: const Icon(Icons.menu),
+          //   ),
+          // ),
           actions: [
             const ResponsiveVisibility(
               visible: false,
@@ -44,33 +45,30 @@ class _CoursesPageState extends State<CoursesPage> {
               visibleWhen: [Condition.largerThan(name: TABLET)],
               child: MenuTextButton(text: 'About'),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: IconButton(
-                onPressed: () {
-                  setState(() {
-                    isDarkMode = !isDarkMode;
-                  });
-                },
-                icon: isDarkMode
-                    ? const Icon(Icons.dark_mode)
-                    : const Icon(Icons.light_mode),
-              ),
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  isDarkMode = !isDarkMode;
+                });
+              },
+              icon: isDarkMode
+                  ? const Icon(Icons.dark_mode)
+                  : const Icon(Icons.light_mode),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: IconButton(
-                icon: const Icon(Icons.mark_email_unread_rounded),
-                onPressed: () {},
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: IconButton(
-                icon: const Icon(Icons.logout_rounded),
-                onPressed: () {},
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 10),
+            //   child: IconButton(
+            //     icon: const Icon(Icons.mark_email_unread_rounded),
+            //     onPressed: () {},
+            //   ),
+            // ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 10),
+            //   child: IconButton(
+            //     icon: const Icon(Icons.logout_rounded),
+            //     onPressed: () {},
+            //   ),
+            // ),
           ],
         ),
         body: ListView(
@@ -106,21 +104,24 @@ class _CoursesPageState extends State<CoursesPage> {
               height: 10,
             ),
             const Center(child: SubscribeBlock()),
+            const SizedBox(
+              height: 40,
+            ),
             Text(
               'Follow For More',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: ResponsiveValue(
                   context,
-                  defaultValue: 50.0,
+                  defaultValue: 35.0,
                   valueWhen: const [
                     Condition.smallerThan(
                       name: MOBILE,
-                      value: 40.0,
+                      value: 20.0,
                     ),
                     Condition.largerThan(
                       name: TABLET,
-                      value: 50.0,
+                      value: 20.0,
                     )
                   ],
                 ).value,
@@ -128,7 +129,8 @@ class _CoursesPageState extends State<CoursesPage> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            const ImagsFollowForMore(),
+            // const ImagsFollowForMore(),
+            const ImagesSlider(),
             const SizedBox(
               height: 25,
             ),
@@ -136,13 +138,15 @@ class _CoursesPageState extends State<CoursesPage> {
             const SizedBox(
               height: 25,
             ),
-            const CircleImageConnnection(),
+
             const SizedBox(
               height: 25,
             ),
             Container(
+              child: Image.network(
+                  'https://www.readz.com/image/8359137.1641922606000/footer-agency.webp'),
               decoration: BoxDecoration(
-                color: Colors.blueGrey.shade100,
+                color: Colors.blueGrey,
                 borderRadius: const BorderRadius.all(Radius.circular(5)),
               ),
               height: 400,
