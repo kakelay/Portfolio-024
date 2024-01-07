@@ -45,34 +45,44 @@ class PageHeader extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        const Image(
-          width: 900,
-          color: Color.fromRGBO(255, 255, 255, 0.5),
-          colorBlendMode: BlendMode.modulate,
-          image: AssetImage('assets/images/header_image.png'),
-        ),
-        Text(
-          'Welcome',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: ResponsiveValue(
-              context,
-              defaultValue: 60.0,
-              valueWhen: const [
-                Condition.smallerThan(
-                  name: MOBILE,
-                  value: 40.0,
-                ),
-                Condition.largerThan(
-                  name: TABLET,
-                  value: 80.0,
-                )
-              ],
-            ).value,
-            color: Colors.blueGrey[900],
-            fontWeight: FontWeight.w700,
+        ResponsiveRowColumnItem(
+          rowFlex: 1,
+          child: Image(
+            //width: 700,
+            //color: Color.fromRGBO(255, 255, 255, 0.5),
+            colorBlendMode: BlendMode.modulate,
+            image: AssetImage('assets/images/me_header.png'),
           ),
         ),
+        // const Image(
+        //   //width: 700,
+        //   //color: Color.fromRGBO(255, 255, 255, 0.5),
+        //   colorBlendMode: BlendMode.modulate,
+        //   image: AssetImage('assets/images/me_header.png'),
+        // ),
+
+        // Text(
+        //   'Welcome',
+        //   textAlign: TextAlign.center,
+        //   style: TextStyle(
+        //     fontSize: ResponsiveValue(
+        //       context,
+        //       defaultValue: 60.0,
+        //       valueWhen: const [
+        //         Condition.smallerThan(
+        //           name: MOBILE,
+        //           value: 40.0,
+        //         ),
+        //         Condition.largerThan(
+        //           name: TABLET,
+        //           value: 80.0,
+        //         )
+        //       ],
+        //     ).value,
+        //     color: Colors.blueGrey[900],
+        //     fontWeight: FontWeight.w700,
+        //   ),
+        // ),
       ],
     );
   }
@@ -183,7 +193,9 @@ class ImagsFollowForMore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return 
+    
+    Container(
       width: ResponsiveValue(
         context,
         defaultValue: 500.0,
@@ -238,6 +250,8 @@ class GridView4Images extends StatelessWidget {
                 ),
                 width: 200,
                 height: 200,
+                child: Image.network(
+                    'https://st5.depositphotos.com/73912608/62318/v/450/depositphotos_623187702-stock-illustration-information-web-icon-simple-illustration.jpg'),
               ),
             ),
             const SizedBox(
@@ -251,6 +265,8 @@ class GridView4Images extends StatelessWidget {
                 ),
                 width: 200,
                 height: 200,
+                child: Image.network(
+                    'https://watermark.lovepik.com/photo/48008/6387.jpg_wh1200.jpg'),
               ),
             ),
           ],
@@ -298,59 +314,88 @@ class CircleImageConnnection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

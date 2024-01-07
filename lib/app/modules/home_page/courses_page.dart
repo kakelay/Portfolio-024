@@ -12,7 +12,7 @@ class CoursesPage extends StatefulWidget {
 }
 
 class _CoursesPageState extends State<CoursesPage> {
-  bool isDarkMode = true;
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _CoursesPageState extends State<CoursesPage> {
               child: MenuTextButton(text: 'About'),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: IconButton(
                 onPressed: () {
                   setState(() {
@@ -58,14 +58,14 @@ class _CoursesPageState extends State<CoursesPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: IconButton(
                 icon: const Icon(Icons.mark_email_unread_rounded),
                 onPressed: () {},
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: IconButton(
                 icon: const Icon(Icons.logout_rounded),
                 onPressed: () {},
@@ -132,7 +132,63 @@ class _CoursesPageState extends State<CoursesPage> {
             const SizedBox(
               height: 25,
             ),
-            const GridView4Images(),
+            // const GridView4Images(),
+            Column(
+              children: [
+                ResponsiveRowColumn(
+                  rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  rowPadding: const EdgeInsets.all(30),
+                  columnPadding: const EdgeInsets.all(30),
+                  layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? ResponsiveRowColumnType.COLUMN
+                      : ResponsiveRowColumnType.ROW,
+                  children: [
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[0]),
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[1]),
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[2]),
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[3]),
+                    ),
+                  ],
+                ),
+                ResponsiveRowColumn(
+                  rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  rowPadding: const EdgeInsets.all(30),
+                  columnPadding: const EdgeInsets.all(30),
+                  layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                      ? ResponsiveRowColumnType.COLUMN
+                      : ResponsiveRowColumnType.ROW,
+                  children: [
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[0]),
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[1]),
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[2]),
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      child: CourseTile(course: courses[3]),
+                    ),
+                  ],
+                ),
+              ],
+            ),
             const SizedBox(
               height: 25,
             ),
@@ -146,6 +202,24 @@ class _CoursesPageState extends State<CoursesPage> {
                 borderRadius: const BorderRadius.all(Radius.circular(5)),
               ),
               height: 400,
+            ),
+            ResponsiveRowColumn(
+              rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              rowPadding: const EdgeInsets.all(30),
+              columnPadding: const EdgeInsets.all(30),
+              layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                  ? ResponsiveRowColumnType.COLUMN
+                  : ResponsiveRowColumnType.ROW,
+              children: [
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: CourseTile(course: courses[0]),
+                ),
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: CourseTile(course: courses[1]),
+                ),
+              ],
             ),
           ],
         ),
