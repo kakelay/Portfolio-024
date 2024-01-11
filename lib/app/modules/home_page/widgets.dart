@@ -356,3 +356,47 @@ class ImagesSlider extends StatelessWidget {
     );
   }
 }
+
+class PageFooter extends StatelessWidget {
+  const PageFooter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'KakElay',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: ResponsiveValue(
+              context,
+              defaultValue: 60.0,
+              valueWhen: const [
+                Condition.smallerThan(
+                  name: MOBILE,
+                  value: 40.0,
+                ),
+                Condition.largerThan(
+                  name: TABLET,
+                  value: 80.0,
+                )
+              ],
+            ).value,
+            color: Colors.blueGrey[900],
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        Container(
+          height: 500,
+          decoration:const  BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            image: DecorationImage(
+              image: AssetImage('assets/images/kakelay.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -142,15 +142,7 @@ class _CoursesPageState extends State<CoursesPage> {
             const SizedBox(
               height: 25,
             ),
-            Container(
-              child: Image.network(
-                  'https://www.readz.com/image/8359137.1641922606000/footer-agency.webp'),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: const BorderRadius.all(Radius.circular(5)),
-              ),
-              height: 400,
-            ),
+            const PageFooter(),
           ],
         ),
       ),
